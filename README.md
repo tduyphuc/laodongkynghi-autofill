@@ -89,7 +89,7 @@ __Lưu ý__: phiên bản driver phải đúng với phiên bản trình duyệt
 * Ở khung "System variables", chọn dòng "Path", nhấn "Edit":
     
     ![Edit path](images/edit_path.png)
-* Nhấn "New", dán đường dẫn tới webdriver đã sao chép ở trên vào dòng mới, lưu ý phải có dấu "\" ở cuối đường dẫn:
+* Nhấn "New", dán đường dẫn tới webdriver đã sao chép ở trên vào dòng mới, lưu ý phải có dấu "\\" ở cuối đường dẫn:
 
     ![Paste path](images/paste_path.png)
 * OK!
