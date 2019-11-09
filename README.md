@@ -1,6 +1,10 @@
 # Tự động điền form laodongkynghi Australia
 Chương trình tự động điền form đăng ký ở trang: http://laodongkynghi.dolab.gov.vn
 
+## Hướng dẫn trên Youtube
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cnBs1_ZaP_8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Mục lục
 
 * [Vài điều về chương trình này](#abouts)
@@ -162,7 +166,7 @@ __Lưu ý__: phiên bản driver phải đúng với phiên bản trình duyệt
     ![Run](images/powershell_run.png)
 
     __Command Prompt__
-    
+
     ![Run](images/run.png)
 
 * Trình duyệt sẽ tự động mở lên và chạy, đừng nên tắt trình duyệt khi đang chạy.
