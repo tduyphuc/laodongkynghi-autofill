@@ -3,7 +3,8 @@ Chương trình tự động điền form đăng ký ở trang: http://laodongky
 
 ## Hướng dẫn trên Youtube
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cnBs1_ZaP_8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/cnBs1_ZaP_8/0.jpg)](http://www.youtube.com/watch?v=cnBs1_ZaP_8)
+
 
 ## Mục lục
 
