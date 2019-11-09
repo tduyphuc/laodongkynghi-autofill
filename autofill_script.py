@@ -1,12 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.support import ui
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 import datetime as dt
 from multiprocessing.pool import ThreadPool
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import pandas as pd
 import argparse
+import timeit
 
 # LINK = 'http://laodongkynghi.dolab.gov.vn/dang-ky-cap-thu-gioi-thieu/ung-vien/mau-dang-ky'
 FORM_XPATH = "//form"
@@ -90,15 +95,7 @@ if __name__ == "__main__":
 
     try:
 
-        def fill_form_one_driver(driver, driver_name):
-
-            src_xsl = pd.ExcelFile('./Data.xlsx')
-            df = src_xsl.parse(0)
-            df = df.iloc[:,:-1]
-            df.columns = ['k', 'v']
-            df['v'] = df['v'].fillna('').apply(lambda x: str(x).strip())
-            data = df.set_index('k').to_dict()['v']
-
+        def fill_form_one_driver(driver, driver_name, data):
             log("[%s] Start fill form" % (driver_name))
 
             # Row 1
@@ -164,7 +161,7 @@ if __name__ == "__main__":
             #timestamp_now = dt.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
             #print("[%s][%s] Save form screenshot: %s" % (timestamp_now, driver_name, screenshot_filename))
 
-        def run_driver(dn, driver, link_form):
+        def run_driver(dn, driver, link_form, data):
             try:
                 log("[%s] Start driver" % (dn))
                 driver.maximize_window()
@@ -172,16 +169,23 @@ if __name__ == "__main__":
 
                 # wait = ui.WebDriverWait(driver, 5)
                 # wait.until(page_is_loaded)
-
+                try:
+                    wait = WebDriverWait(driver, WAIT_TIME).until(ec.visibility_of_element_located((By.XPATH, '//form')))
+                    log("[%s] Page is ready!" % (dn))
+                except TimeoutException:
+                    log("[%s] Loading took too much time!" % (dn))
+                
                 log("[%s] Load page completed" % (dn))
 
                 # time.sleep(WAIT_TIME)
-                fill_form_one_driver(driver, dn)
+                fill_form_one_driver(driver, dn, data)
 
                 # driver.close()
                 log("[%s] Close driver" % (dn))
             except Exception as e:
                 log("[ERROR][%s] %s" % (dn, str(e)))
+
+        start_time = timeit.default_timer()
 
         pool = ThreadPool(NUM_DRIVERS)
 
@@ -201,8 +205,18 @@ if __name__ == "__main__":
 
         driver_names = ['driver_' + str(i) for i in range(1, NUM_DRIVERS + 1)]                 
         driver_tuples = pool.map(lambda x: (x, webdriver.Chrome(desired_capabilities=caps, chrome_options=options)), driver_names)
+
+        src_xsl = pd.ExcelFile('./Data.xlsx')
+        df = src_xsl.parse(0)
+        df = df.iloc[:,:-1]
+        df.columns = ['k', 'v']
+        df['v'] = df['v'].fillna('').apply(lambda x: str(x).strip())
+        data = df.set_index('k').to_dict()['v']
         
-        res = pool.map(lambda x: run_driver(x[0], x[1], LINK_FORM), driver_tuples)
+        res = pool.map(lambda x: run_driver(x[0], x[1], LINK_FORM, data), driver_tuples)
+
+        pt = round((timeit.default_timer() - start_time), 2)
+        print("Processing time: %s" % (str(pt)))
     
     except Exception as e:
         print(e)

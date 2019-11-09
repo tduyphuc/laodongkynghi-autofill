@@ -114,14 +114,36 @@ __Lưu ý__: phiên bản driver phải đúng với phiên bản trình duyệt
 
 ### Chạy autofill_script
 * Sử dụng mẫu câu lệnh sau:
+
+    __PowerShell__
+    ```
+    python autofill_script.py `
+    --drivers <Số lượng trình duyệt mở cùng lúc> `
+    --wait <Thời gian chờ để trang web load (giây)> `
+    --browser <Loại trình duyệt, mặc định chrome> `
+    --link "<Đường link đến trang có form đăng kí>"
+    ```
+
+    __Command Prompt__:
     ```
     python autofill_script.py ^
     --drivers <Số lượng trình duyệt mở cùng lúc> ^
     --wait <Thời gian chờ để trang web load (giây)> ^
-    --browser <Loại trình duyệt, mặc định chrome>^
+    --browser <Loại trình duyệt, mặc định chrome> ^
     --link "<Đường link đến trang có form đăng kí>"
     ```
 * Ví dụ để chạy __2__ trình duyệt __chrome__ cùng lúc để điền vào trang __https://laodongkynghi.info/dang-ky.html__:
+
+    __PowerShell__
+    ```
+    python autofill_script.py `
+    --drivers 2 `
+    --wait 2 `
+    --browser chrome `
+    --link "https://laodongkynghi.info/dang-ky.html"
+    ```
+
+    __Command Prompt__
     ```
     python autofill_script.py ^
     --drivers 2 ^
@@ -129,8 +151,18 @@ __Lưu ý__: phiên bản driver phải đúng với phiên bản trình duyệt
     --browser chrome ^
     --link "https://laodongkynghi.info/dang-ky.html"
     ```
-* Mở __Command Prompt__ mới, dán câu lệnh vào, Enter:
+* Tại thư mục chứa 2 file, nhấn __Shift__ + __Chuột phải__ để mở __Powershell__ (hoặc __Command Prompt__ tuỳ máy):
 
+    ![Open powersheel](images/open_cmd.png)
+
+* Tại cửa sổ __PowerShell__ (hoặc __Command Prompt__), dán câu lệnh vào, Enter:
+
+    __PowerShell__
+
+    ![Run](images/powershell_run.png)
+
+    __Command Prompt__
+    
     ![Run](images/run.png)
 
 * Trình duyệt sẽ tự động mở lên và chạy, đừng nên tắt trình duyệt khi đang chạy.
@@ -141,5 +173,6 @@ __Lưu ý__: phiên bản driver phải đúng với phiên bản trình duyệt
 * Khi chạy thực tế nhớ thay đường dẫn tới trang gốc thay vì trang tập luyện
 * Mở từ 4-5 trình duyệt là ổn
 * Khi xác nhận sẽ có yêu cầu nhập Captcha, version hiện tại chưa hỗ trợ điền Captcha tự động, bạn sẽ phải tự điền và nhấn xác nhận
-* Một số trường sẽ nhập lỗi trong quá trình chạy hoặc không nhập được, vui lòng kiểm tra lại trước khi xác nhận.
+* Trang chính thức có thể sẽ thay đổi cấu trúc trang web, dẫn đến
+một số trường sẽ nhập lỗi trong quá trình chạy hoặc không nhập được, vui lòng __kiểm tra lại thông tin__ trước khi xác nhận.
 
