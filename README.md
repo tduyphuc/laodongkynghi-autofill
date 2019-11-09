@@ -28,7 +28,7 @@ Chương trình tự động điền form đăng ký ở trang: http://laodongky
 * Tác giả chương trình này không chịu trách nhiệm về bất kì trục trặc trong quá trình sử dụng chương trình này. Tuy nhiên, nếu người sử dụng muốn thông báo lỗi hoặc đóng góp cho chương trình thì vui lòng liên hệ với tác giả.
 * Nếu thấy chương trình này hữu ích, các bạn có thể donate cho tác giả :smile: qua:
     * __PayPal__: https://www.paypal.me/tduyphuc
-    * __VPBank__: 154817174 - Chi nhánh Hồ Chí Minh
+    * __VPBank__: STK: 154817174, Chủ TK: TRAN DUY PHUC - Chi nhánh Hồ Chí Minh
 
 <a name="env-setups"></a>
 
