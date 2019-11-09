@@ -46,10 +46,10 @@ def log(txt):
 xpath_config = {
     "FullName": "(//form/div[@class=\"form-group\"][1]//input)[1]",
     "DOB": "(//form/div[@class=\"form-group\"][1]//input)[2]",
-    "Sex": "(//form/div[@class=\"form-group\"][1]//select)[1]/option[{}]",
+    "Sex": "(//form/div[@class=\"form-group\"][1]//select)[1]/option[contains(.,'{}')]",
     "Email": "(//form/div[@class=\"form-group\"][2]//input)[1]",
     "Phone": "(//form/div[@class=\"form-group\"][2]//input)[2]",
-    "Marriage": "(//form/div[@class=\"form-group\"][2]//select)[1]/option[{}]",
+    "Marriage": "(//form/div[@class=\"form-group\"][2]//select)[1]/option[contains(.,'{}')]",
     "Address": "(//form/div[@class=\"form-group\"][3]//input)[1]",
     "Province": "(//form/div[@class=\"form-group\"][4]//select)[1]/option[contains(.,'{}')]",
     "District": "(//form/div[@class=\"form-group\"][4]//select)[2]/option[contains(.,'{}')]",

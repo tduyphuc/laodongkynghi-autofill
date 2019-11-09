@@ -79,7 +79,7 @@ __Lưu ý__: phiên bản driver phải đúng với phiên bản trình duyệt
 * Tải Chrome webdriver ở [đây](https://chromedriver.chromium.org/downloads). Lưu ý: phải cùng phiên bản với Chrome đang có ở máy, và nhớ chọn bản cho __windows__.
 * Giải nén file vừa tải về, sẽ được 1 thư mục chứa __chromedriver__.
 * Nhấp chuột phải vào file __chromedriver__ > Properties.
-* Sao chép đường dẫn tới file __chromedriver__ ở LocationLocation
+* Sao chép đường dẫn tới file __chromedriver__ ở Location
 
     ![Copy path](images/copy_path.png)
 
